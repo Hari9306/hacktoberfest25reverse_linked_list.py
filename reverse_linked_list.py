@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, data):
+    def _init_(self, data):
         self.data = data
         self.next = None
 
@@ -11,7 +11,7 @@ def reverse_linked_list(head):
         next_node = current.next
         current.next = prev
         prev = current
-        current = next_node.next  # ❌ Wrong: should be current = next_node
+        current = next_node  # ✅ Fixed
     return prev
 
 
@@ -26,4 +26,4 @@ def print_list(head):
 head = Node(1)
 head.next = Node(2)
 head.next.next = Node(3)
-print_list(reverse_linked_list(head))  # Expected 3 2 1
+print_list(reverse_linked_list(head))
